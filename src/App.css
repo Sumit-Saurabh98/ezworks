@@ -1,0 +1,30 @@
+.left{
+  /* font-family: 'Dancing Script'; */
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    /* font-family: 'Work Sans', sans-serif; */
+}
+
+/* App.css */
+/* Add global styles here if needed */
+
+/* MainSection.css */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-section {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.right-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Add styles for logo, input, and other elements as needed */

@@ -1,0 +1,13 @@
+.sb-second-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.small-box{
+    background-color: rgb(17, 41, 73);
+    padding: 10px;
+    color: #fff;
+}
+.name{
+    color: #3CC3F1;
+}
