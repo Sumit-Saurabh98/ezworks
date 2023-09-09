@@ -4,11 +4,11 @@ import "../style/smallbox.css"
 function SmallBox({ icon, title, text }) {
   return (
     <div className="small-box">
-      <div className='sb-second-container'>
-        <div style={{fontSize:"2rem"}} className="icon">{icon}</div>
-      <div className="name">{title}</div>
+      <div className='small-box-container'>
+        <div className="small-box-icon">{icon}</div>
+      <div className="small-box-name">{title}</div>
       </div>
-      <p>{text}</p>
+      <p className='small-box-text'>{text}</p>
     </div>
   );
 }

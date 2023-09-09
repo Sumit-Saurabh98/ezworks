@@ -1,30 +1,218 @@
-.left{
-  /* font-family: 'Dancing Script'; */
-    font-family: 'Exo', sans-serif;
-    font-weight: 700;
-    /* font-family: 'Work Sans', sans-serif; */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* App.css */
-/* Add global styles here if needed */
+.left-section{
+     font-family: 'Exo', sans-serif;
+}
 
-/* MainSection.css */
+
 .main-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 4fr 5fr;
   gap: 20px;
   padding: 20px;
 }
 
 .left-section {
-  background-color: #f0f0f0;
   padding: 20px;
 }
 
 .right-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
 
+.main-logo {
+  max-width: 70%;
+  height: auto;
+}
+
+.main-logo:hover{
+  cursor: pointer;
+}
+
+.left-container-h2{
+  margin-top: 30px;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.left-container-text{
+  margin: 40px 0 20px 0;
+  font-size: large;
+  font-weight: 600;
+}
+
+input{
+  width: 60%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+button {
+  width: 30%;
+  padding: 10px;
+  font-size: larger;
+  animation: ease all 2s;
+  background-color: #EA7B2C;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+button:active{
+  scale: .9;
+}
+
+button:hover{
+  cursor: pointer;
+}
+.error{
+  color: red;
+  font-weight: 500;
+}
+.success{
+  color: green;
+  font-weight: 500;
+}
 /* Add styles for logo, input, and other elements as needed */
+
+
+/* media query */
+
+/* Media query for screens smaller than 480p (Mobile View) */
+@media (max-width: 480px) {
+
+  .main-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .left-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+    align-items: center;
+  }
+  input{
+    width: 100%;
+    padding: 20px;
+  }
+  button{
+    width: 50%;
+    font-size: 30px;
+    
+  }
+
+    .input-container input[type="text"]::placeholder {
+      font-size: 20px;
+    }
+
+        .right-section {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          gap: 30px;
+        }
+}
+
+/* Media query for screens between 480p and 720p */
+@media (min-width: 481px) and (max-width: 720px) {
+
+  .main-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 10px;
+      align-items: center;
+    }
+  
+    input {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    button {
+      width: 30%;
+      font-size: 30px;
+  
+    }
+  
+    .input-container input[type="text"]::placeholder {
+      font-size: 20px;
+    }
+  
+    .right-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  
+}
+
+/* Media query for screens between 720p and 1080p */
+@media (min-width: 721px) and (max-width: 1080px) {
+
+  .main-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 10px;
+      align-items: center;
+    }
+  
+    input {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    button {
+      width: 30%;
+      font-size: 30px;
+  
+    }
+  
+    .input-container input[type="text"]::placeholder {
+      font-size: 20px;
+    }
+  
+    .right-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+  
+}
+

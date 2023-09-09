@@ -1,13 +1,27 @@
-.sb-second-container{
+.small-box-container{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 10px;
+}
+
+.small-box-icon{
+    font-size: 2rem;
+}
+
+.small-box-name{
+    font-weight: 700;
+    color: #3CC3F1;
 }
 .small-box{
     background-color: rgb(17, 41, 73);
-    padding: 10px;
+    padding: 20px 15px;
     color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
 }
-.name{
-    color: #3CC3F1;
+
+.small-box-text{
+    font-weight: 500;
+    margin-top: 10px;
 }
