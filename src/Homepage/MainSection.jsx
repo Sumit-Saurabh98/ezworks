@@ -1,62 +1,41 @@
 import React, { useState } from "react";
 import SmallBox from "../components/SmallBoxes";
 import { data } from "../utils/data";
+import { emailRegex } from "../utils/regex";
+import { submitEmail } from "../config/api";
 
 function MainSection() {
   const [email, setEmail] = useState("");
   const [formError, setFormError] = useState(null);
-  const [formMessage, setFormMessage] = useState(""); 
+  const [formMessage, setFormMessage] = useState("");
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  // Reset form error and message
-  if (!email) {
+    if (!email) {
       setFormError("Email is required");
       return;
-    } else if (!validateEmail(email)) {
-      setFormError("Invalid email format");
-      return;
-    } 
-
-    // Reset form error and message
-    setFormError(null);
-    setFormMessage("");
-
-    try {
-    const response = await fetch("http://3.228.97.110:9000/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    console.log(response.status)
-     const res = await response.json()
-     console.log(res)
-
-    if (response.status === 200) {
-      
-      setFormMessage(res.message);
-    } else {
-      setFormError(res.detail);
     }
-  } catch (error) {
-    setFormError("API Error");
-  }
-  
-};
 
-// Helper function to validate email format
-  const validateEmail = (email) => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailPattern.test(email);
+    if (!emailRegex.test(email)) {
+      setFormError("Invalid email address");
+      return;
+    }
+
+    setFormError(null);
+    setFormMessage(null);
+
+    const result = await submitEmail(email);
+
+    if (result.success) {
+      setFormMessage(result.message);
+    } else {
+      setFormError(result.error);
+    }
   };
 
   return (
     <div className="main-container">
-      {/* Left Section */}
       <div className="left-section">
         <div className="main-logo-container">
           <img
@@ -75,20 +54,20 @@ function MainSection() {
         </p>
         <div className="input-container">
           <form onSubmit={handleSubmit}>
+            {formError && <p className="error">{formError}</p>}
+            {formMessage && <p className="success">{formMessage}</p>}
             <input
               type="text"
               placeholder="Enter something"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {formError && <p className="error">{formError}</p>}
-            {formMessage && <p className="success">{formMessage}</p>}
+
             <button>Submit</button>
           </form>
         </div>
       </div>
 
-      {/* Right Section */}
       <div className="right-section">
         {data.map((item, index) => {
           return (
