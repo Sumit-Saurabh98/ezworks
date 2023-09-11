@@ -49,9 +49,11 @@
 
 input{
   width: 60%;
-  padding: 10px;
+  padding: 5px;
   margin-right: 10px;
   border-radius: 5px;
+  outline: none;
+  font-size: 1.3vw;
 }
 
 button {
@@ -107,12 +109,11 @@ button:hover{
   }
   input{
     width: 100%;
-    padding: 20px;
+    font-size: 30px;
   }
   button{
     width: 50%;
-    font-size: 30px;
-    
+    font-size: 20px;
   }
 
     .input-container input[type="text"]::placeholder {
@@ -149,14 +150,13 @@ button:hover{
     }
   
     input {
-      width: 80%;
-      padding: 20px;
+      width: 100%;
+      font-size: 30px;
     }
   
     button {
       width: 30%;
-      font-size: 30px;
-  
+      font-size: 20px;
     }
   
     .input-container input[type="text"]::placeholder {
@@ -195,13 +195,13 @@ button:hover{
   
     input {
       width: 80%;
-      padding: 20px;
+      font-size: 20px;
+      padding: 10px;
     }
   
     button {
       width: 30%;
-      font-size: 30px;
-  
+      font-size: 25px;
     }
   
     .input-container input[type="text"]::placeholder {

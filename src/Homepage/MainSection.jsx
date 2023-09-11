@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SmallBox from "../components/SmallBoxes";
-import { data } from "../utils/data";
+import { myData } from "../utils/myData";
 import { emailRegex } from "../utils/regex";
 import { submitEmail } from "../config/api";
 
@@ -8,17 +8,21 @@ function MainSection() {
   const [email, setEmail] = useState("");
   const [formError, setFormError] = useState(null);
   const [formMessage, setFormMessage] = useState("");
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (event) => {
+    setLoading(true)
     event.preventDefault();
 
     if (!email) {
       setFormError("Email is required");
+      setLoading(false)
       return;
     }
 
     if (!emailRegex.test(email)) {
       setFormError("Invalid email address");
+      setLoading(false)
       return;
     }
 
@@ -29,8 +33,10 @@ function MainSection() {
 
     if (result.success) {
       setFormMessage(result.message);
+      setLoading(false)
     } else {
       setFormError(result.error);
+      setLoading(false)
     }
   };
 
@@ -54,8 +60,8 @@ function MainSection() {
         </p>
         <div className="input-container">
           <form onSubmit={handleSubmit}>
-            {formError && <p className="error">{formError}</p>}
-            {formMessage && <p className="success">{formMessage}</p>}
+            {formError && <p  className="error">{formError}</p>}
+            {formMessage && <p  className="success">{formMessage}</p>}
             <input
               type="text"
               placeholder="Enter something"
@@ -63,13 +69,13 @@ function MainSection() {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <button>Submit</button>
+            <button>{loading ? "Submitting..." : "Contact Me"}</button>
           </form>
         </div>
       </div>
 
       <div className="right-section">
-        {data.map((item, index) => {
+        {myData.map((item, index) => {
           return (
             <div key={index} className="right-section-second">
               <SmallBox icon={item.icon} title={item.title} text={item.text} />
