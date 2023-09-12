@@ -11,34 +11,42 @@ function MainSection() {
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (event) => {
-    setLoading(true)
-    event.preventDefault();
+  setLoading(true);
+  event.preventDefault();
 
-    if (!email) {
-      setFormError("Email is required");
-      setLoading(false)
-      return;
-    }
+  if (!email) {
+    setFormError("Email is required");
+    setLoading(false);
+    return;
+  }
 
-    if (!emailRegex.test(email)) {
-      setFormError("Invalid email address");
-      setLoading(false)
-      return;
-    }
+  if (!emailRegex.test(email)) {
+    setFormError("Invalid email address");
+    setLoading(false);
+    return;
+  }
 
-    setFormError(null);
-    setFormMessage(null);
+  if (email.endsWith("@ez.works")) {
+    setFormError("Emails ending with @ez.works are not allowed.");
+    setLoading(false);
+    setFormMessage("");
+    return;
+  }
 
-    const result = await submitEmail(email);
+  setFormError(null);
+  setFormMessage(""); 
 
-    if (result.success) {
-      setFormMessage(result.message);
-      setLoading(false)
-    } else {
-      setFormError(result.error);
-      setLoading(false)
-    }
-  };
+  const result = await submitEmail(email);
+
+  if (result.success) {
+    setFormMessage(result.message);
+  } else {
+    setFormError(result.error);
+  }
+
+  setLoading(false);
+};
+
 
   return (
     <div className="main-container">
