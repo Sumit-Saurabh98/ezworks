@@ -46,5 +46,8 @@ Import Statements
 This is a React functional component called SmallBox.<br/>
 It represents a small box with an icon, title, and text.<br/>
 
+## Screenshot
+
+<img width="1440" alt="Screenshot 2023-09-12 at 1 45 25 PM" src="https://github.com/Sumit-Saurabh98/ezworks/assets/105351295/a1b8b795-78ed-4aad-882b-b5f67c6ba412">
 
 
