@@ -37,13 +37,14 @@ It performs several validation checks on the email input:<br/>
 ## SmallBox.js
 
 Import Statements
-Importing React from 'react'.
-Importing a CSS file for styling.
-SmallBox Component
-This is a React functional component called SmallBox.
-It represents a small box with an icon, title, and text.
-Render Function
-The render function returns JSX that represents the structure and content of the small box.
-It includes an image (icon), a title, and a text description.
+
+-> Importing React from 'react'.<br/>
+-> Importing a CSS file for styling.<br/>
+
+
+### SmallBox Component
+This is a React functional component called SmallBox.<br/>
+It represents a small box with an icon, title, and text.<br/>
+
 
 
